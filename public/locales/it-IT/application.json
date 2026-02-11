@@ -107,6 +107,8 @@
     "searchFilesTitle": "Cerca file",
     "searchIn": "Cerca <0>{{keywords}}</0>",
     "recentlyViewed": "Visualizzati di recente",
+    "fullTextSearch": "Ricerca full-text",
+    "loadMore": "Carica altro",
     "searchFiles": "Cerca file...",
     "showMore": "Altro",
     "myFiles": "I miei file",

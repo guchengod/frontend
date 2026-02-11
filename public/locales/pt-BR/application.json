@@ -104,6 +104,8 @@
     "searchFilesTitle": "Buscar arquivos",
     "searchIn": "Buscar <0>{{keywords}}</0>",
     "recentlyViewed": "Visualizados recentemente",
+    "fullTextSearch": "Pesquisa de texto completo",
+    "loadMore": "Carregar mais",
     "searchFiles": "Buscar arquivos...",
     "showMore": "Mais",
     "resetThumbnail": "Redefinir miniatura quebrada",

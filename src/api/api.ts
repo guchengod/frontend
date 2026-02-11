@@ -2133,3 +2133,25 @@ export function sendRevokeOAuthGrant(grant_id: string): ThunkResponse {
     );
   };
 }
+
+export function sendFullTextSearch(query: string, offset?: number): ThunkResponse {
+  const params = new URLSearchParams();
+  params.set("query", query);
+  if (offset) {
+    params.set("offset", offset.toString());
+  }
+  return async (dispatch, _getState) => {
+    return await dispatch(
+      send(
+        `/file/search`,
+        {
+          method: "GET",
+          params,
+        },
+        {
+          ...defaultOpts,
+        },
+      ),
+    );
+  };
+}

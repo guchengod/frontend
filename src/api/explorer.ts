@@ -592,3 +592,13 @@ export interface ArchiveListFilesService {
   entity?: string;
   text_encoding?: string;
 }
+
+export interface FullTextSearchResults {
+  hits?: FullTextSearchResult[];
+  total: number;
+}
+
+export interface FullTextSearchResult {
+  file: FileResponse;
+  content: string;
+}

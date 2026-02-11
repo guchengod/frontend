@@ -104,6 +104,8 @@
     "searchFilesTitle": "Dateien suchen",
     "searchIn": "Suchen nach <0>{{keywords}}</0>",
     "recentlyViewed": "Kürzlich angesehen",
+    "fullTextSearch": "Volltextsuche",
+    "loadMore": "Mehr laden",
     "searchFiles": "Dateien suchen...",
     "showMore": "Mehr anzeigen",
     "myFiles": "Meine Dateien",

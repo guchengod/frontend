@@ -107,6 +107,8 @@
     "searchFilesTitle": "搜尋檔案",
     "searchIn": "搜尋 <0>{{keywords}}</0>",
     "recentlyViewed": "最近瀏覽",
+    "fullTextSearch": "全文搜尋",
+    "loadMore": "載入更多",
     "searchFiles": "搜尋檔案...",
     "showMore": "更多",
     "myFiles": "我的檔案",

@@ -104,6 +104,8 @@
     "searchFilesTitle": "파일 검색",
     "searchIn": "<0>{{keywords}}</0> 검색",
     "recentlyViewed": "최근 본 항목",
+    "fullTextSearch": "전문 검색",
+    "loadMore": "더 불러오기",
     "searchFiles": "파일 검색...",
     "showMore": "더보기",
     "myFiles": "내 파일",

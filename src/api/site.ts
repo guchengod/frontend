@@ -48,6 +48,7 @@ export interface SiteConfig {
   custom_html?: CustomHTML;
   thumb_exts?: string[];
   show_encryption_status?: boolean;
+  full_text_search?: boolean;
 }
 
 export interface CaptchaResponse {

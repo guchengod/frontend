@@ -104,6 +104,8 @@
     "searchFilesTitle": "搜索文件",
     "searchIn": "搜索 <0>{{keywords}}</0>",
     "recentlyViewed": "最近浏览",
+    "fullTextSearch": "全文搜索",
+    "loadMore": "加载更多",
     "searchFiles": "搜索文件...",
     "showMore": "更多",
     "myFiles": "我的文件",

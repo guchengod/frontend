@@ -107,6 +107,8 @@
     "searchFilesTitle": "ファイル検索",
     "searchIn": "ファイル検索 <0>{{keywords}}</0>",
     "recentlyViewed": "最近の閲覧",
+    "fullTextSearch": "全文検索",
+    "loadMore": "もっと読み込む",
     "searchFiles": "ファイル検索...",
     "showMore": "その他",
     "myFiles": "マイファイル",

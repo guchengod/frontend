@@ -107,6 +107,8 @@
     "searchFilesTitle": "Поиск файлов",
     "searchIn": "Поиск <0>{{keywords}}</0>",
     "recentlyViewed": "Недавно просмотренные",
+    "fullTextSearch": "Полнотекстовый поиск",
+    "loadMore": "Загрузить ещё",
     "searchFiles": "Поиск файлов...",
     "showMore": "Ещё",
     "myFiles": "Мои файлы",
