@@ -371,19 +371,8 @@ export function forceUnlockFiles(tokens: string[]): AppThunk<Promise<void>> {
   };
 }
 
-export function renameFile(index: number, file: FileResponse): AppThunk<Promise<void>> {
+export function submitRenameFile(index: number, file: FileResponse, newName: string): AppThunk<Promise<boolean>> {
   return async (dispatch, getState) => {
-    dispatch(closeContextMenu({ index, value: undefined }));
-    let newName = "";
-    try {
-      newName = await dispatch(renameForm(index, file));
-    } catch (e) {
-      // operation canceled
-      return;
-    }
-
-    dispatch(setRenameFileModalLoading({ index, value: true }));
-
     let newFile: FileResponse | undefined = undefined;
     try {
       newFile = await dispatch(
@@ -393,8 +382,7 @@ export function renameFile(index: number, file: FileResponse): AppThunk<Promise<
         }),
       );
     } catch (e) {
-    } finally {
-      dispatch(closeRenameFileModal({ index, value: undefined }));
+      return false;
     }
 
     if (newFile) {
@@ -410,7 +398,6 @@ export function renameFile(index: number, file: FileResponse): AppThunk<Promise<
         }),
       );
 
-      // if current path is child of old path, refresh
       const currentPath = getState().fileManager[index].path;
       if (currentPath) {
         if (
@@ -422,10 +409,68 @@ export function renameFile(index: number, file: FileResponse): AppThunk<Promise<
         }
       }
     }
+    return !!newFile;
+  };
+}
+
+export function inlineRenameSubmit(
+  index: number,
+  file: FileResponse,
+  newName: string,
+): AppThunk<Promise<string | undefined>> {
+  return async (dispatch, getState) => {
+    const current = getState().fileManager[index].list?.files;
+    const existingNames = current?.filter((f) => f.name !== file.name).map((f) => f.name) ?? [];
+    const error = validateFileNamePure(newName, existingNames);
+    if (error) return error;
+
+    await dispatch(submitRenameFile(index, file, newName));
+    return undefined;
+  };
+}
+
+export function renameFile(index: number, file: FileResponse): AppThunk<Promise<void>> {
+  return async (dispatch, _getState) => {
+    dispatch(closeContextMenu({ index, value: undefined }));
+    let newName = "";
+    try {
+      newName = await dispatch(renameForm(index, file));
+    } catch (e) {
+      // operation canceled
+      return;
+    }
+
+    dispatch(setRenameFileModalLoading({ index, value: true }));
+
+    try {
+      await dispatch(submitRenameFile(index, file, newName));
+    } finally {
+      dispatch(closeRenameFileModal({ index, value: undefined }));
+    }
   };
 }
 
 const special = '\\/:*?"<>|';
+
+export function validateFileNamePure(newName: string, existingNames: string[]): string | undefined {
+  if (newName.length === 0 || newName.length > 255) {
+    return i18next.t("application:modals.newNameLengthError");
+  }
+
+  if (newName.split("").some((c) => special.includes(c))) {
+    return i18next.t("application:modals.newNameCharacterError");
+  }
+
+  if (newName == "." || newName == "..") {
+    return i18next.t("application:modals.newNameDotError");
+  }
+
+  if (existingNames.includes(newName)) {
+    return i18next.t("application:modals.duplicatedObjectName");
+  }
+
+  return undefined;
+}
 
 export function validateFileName(
   index: number,
@@ -433,53 +478,16 @@ export function validateFileName(
   newName: string,
 ): AppThunk<Promise<void>> {
   return async (dispatch, getState) => {
-    if (newName.length === 0 || newName.length > 255) {
-      dispatch(
-        setRenameFileModalError({
-          index,
-          value: i18next.t("application:modals.newNameLengthError"),
-        }),
-      );
-      return;
-    }
-
-    if (newName.split("").some((c) => special.includes(c))) {
-      dispatch(
-        setRenameFileModalError({
-          index,
-          value: i18next.t("application:modals.newNameCharacterError"),
-        }),
-      );
-      return;
-    }
-
-    if (newName == "." || newName == "..") {
-      dispatch(
-        setRenameFileModalError({
-          index,
-          value: i18next.t("application:modals.newNameDotError"),
-        }),
-      );
-      return;
-    }
-
     const current = getState().fileManager[index].list?.files;
-    if (current && current.find((f) => f.name === newName)) {
-      dispatch(
-        setRenameFileModalError({
-          index,
-          value: i18next.t("application:modals.duplicatedObjectName"),
-        }),
-      );
+    const existingNames = current?.map((f) => f.name) ?? [];
+    const error = validateFileNamePure(newName, existingNames);
+
+    if (error) {
+      dispatch(setRenameFileModalError({ index, value: error }));
       return;
     }
 
-    dispatch(
-      setRenameFileModalError({
-        index,
-        value: undefined,
-      }),
-    );
+    dispatch(setRenameFileModalError({ index, value: undefined }));
     resolve(newName);
   };
 }

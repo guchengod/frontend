@@ -1,4 +1,4 @@
-import { Box, Fade, PopoverProps, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Fade, InputBase, PopoverProps, Tooltip, Typography, useMediaQuery, useTheme } from "@mui/material";
 import { memo, useCallback, useEffect, useMemo, useState } from "react";
 import { sizeToString } from "../../../../util";
 import CrUri, { SearchParam } from "../../../../util/uri.ts";
@@ -21,6 +21,7 @@ import AutoHeight from "../../../Common/AutoHeight.tsx";
 import { NoWrapBox } from "../../../Common/StyledComponents.tsx";
 import TimeBadge from "../../../Common/TimeBadge.tsx";
 import Info from "../../../Icons/Info.tsx";
+import { DisplayOption } from "../../ContextMenu/useActionDisplayOpt.ts";
 import FileBadge from "../../FileBadge.tsx";
 import { CustomPropsItem, customPropsMetadataPrefix } from "../../Sidebar/CustomProps/CustomProps.tsx";
 import { getPropsContent } from "../../Sidebar/CustomProps/CustomPropsItem.tsx";
@@ -53,10 +54,12 @@ import { MediaMetaElements } from "../../Sidebar/MediaMetaCard.tsx";
 import FileTagSummary from "../FileTagSummary.tsx";
 import { ThumbLoadingPlaceholder, ThumbPopoverImg } from "../GridView/GridFile.tsx";
 import UploadingTag from "../UploadingTag.tsx";
+import { useInlineRename } from "../useInlineRename.ts";
 
 export interface CellProps {
   file: FmFile;
   column: ListViewColumn;
+  actionDisplayOpt?: DisplayOption;
   isSelected?: boolean;
   search?: SearchParam;
   fileTag?: {
@@ -165,6 +168,18 @@ const FileNameCell = memo((props: CellProps) => {
   const isTouch = useMediaQuery("(pointer: coarse)");
   const { file, uploading, noThumb, fileTag, search, isSelected, thumbWidth, thumbHeight } = props;
 
+  const {
+    isEditing,
+    editValue,
+    inputRef,
+    onNameClick,
+    onNameDoubleClick,
+    onInputKeyDown,
+    onInputBlur,
+    onInputChange,
+    stopPropagation,
+  } = useInlineRename({ file, isSelected, uploading, isTouch });
+
   const popupState = usePopupState({
     variant: "popover",
     popupId: "thumbPreview" + file.id,
@@ -175,6 +190,11 @@ const FileNameCell = memo((props: CellProps) => {
   return (
     <>
       <Box
+        onClick={isEditing ? stopPropagation : undefined}
+        onDoubleClick={isEditing ? stopPropagation : undefined}
+        onMouseDown={isEditing ? stopPropagation : undefined}
+        onMouseMove={isEditing ? stopPropagation : undefined}
+        onDragStart={isEditing ? stopPropagation : undefined}
         sx={{
           display: "flex",
           alignItems: "center",
@@ -185,22 +205,46 @@ const FileNameCell = memo((props: CellProps) => {
           <FileSmallIcon variant={"list"} selected={!!isSelected} file={file} />
         </Box>
 
-        <Tooltip title={file.name} disableInteractive>
-          <NoWrapBox>
-            {search?.name ? (
-              <Highlighter
-                highlightClassName="highlight-marker"
-                searchWords={search?.name}
-                autoEscape={true}
-                textToHighlight={file.name}
-              />
-            ) : (
-              file.name
-            )}
-          </NoWrapBox>
-        </Tooltip>
-        {!uploading && fileTag && fileTag.length > 0 && <FileTagSummary sx={{ maxWidth: "50%" }} tags={fileTag} />}
-        {uploading && <UploadingTag sx={{ maxWidth: "50%" }} />}
+        {isEditing ? (
+          <InputBase
+            inputRef={inputRef}
+            value={editValue}
+            onChange={onInputChange}
+            onKeyDown={onInputKeyDown}
+            onBlur={onInputBlur}
+            size="small"
+            fullWidth
+            sx={{
+              flex: 1,
+              fontSize: "inherit",
+              "& .MuiInputBase-input": {
+                py: 0,
+                px: 0.5,
+                border: `1px solid ${theme.palette.primary.main}`,
+                borderRadius: 0.5,
+              },
+            }}
+          />
+        ) : (
+          <Tooltip title={file.name} disableInteractive>
+            <NoWrapBox onClick={onNameClick} onDoubleClick={onNameDoubleClick}>
+              {search?.name ? (
+                <Highlighter
+                  highlightClassName="highlight-marker"
+                  searchWords={search?.name}
+                  autoEscape={true}
+                  textToHighlight={file.name}
+                />
+              ) : (
+                file.name
+              )}
+            </NoWrapBox>
+          </Tooltip>
+        )}
+        {!isEditing && !uploading && fileTag && fileTag.length > 0 && (
+          <FileTagSummary sx={{ maxWidth: "50%" }} tags={fileTag} />
+        )}
+        {!isEditing && uploading && <UploadingTag sx={{ maxWidth: "50%" }} />}
       </Box>
       {!noThumb && (
         <ThumbPopover
