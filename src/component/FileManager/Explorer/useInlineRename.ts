@@ -68,7 +68,9 @@ export function useInlineRename({ file, isSelected, uploading, isTouch }: UseInl
         renameTimerRef.current = null;
       }
       if (isEditing) {
-        setIsEditing(false);
+        setTimeout(() => {
+          setIsEditing(false);
+        }, 500);
       }
     }
   }, [isSelected, isEditing]);
