@@ -86,7 +86,8 @@
     "authorizeEndpoint": "Конечная точка авторизации",
     "tokenEndpoint": "Конечная точка токена",
     "refreshEndpoint": "Конечная точка обновления",
-    "userinfoEndpoint": "Конечная точка информации о пользователе"
+    "userinfoEndpoint": "Конечная точка информации о пользователе",
+    "scopes": "Области"
   },
   "summary": {
     "generatedAt": "Создано в <0></0>",

@@ -86,7 +86,8 @@
     "authorizeEndpoint": "Punkt końcowy autoryzacji",
     "tokenEndpoint": "Punkt końcowy tokena",
     "refreshEndpoint": "Punkt końcowy odświeżania",
-    "userinfoEndpoint": "Punkt końcowy informacji o użytkowniku"
+    "userinfoEndpoint": "Punkt końcowy informacji o użytkowniku",
+    "scopes": "Zakresy"
   },
   "summary": {
     "generatedAt": "Wygenerowano <0></0>",

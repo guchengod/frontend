@@ -86,7 +86,8 @@
     "authorizeEndpoint": "인증 엔드포인트",
     "tokenEndpoint": "토큰 엔드포인트",
     "refreshEndpoint": "새로고침 엔드포인트",
-    "userinfoEndpoint": "사용자 정보 엔드포인트"
+    "userinfoEndpoint": "사용자 정보 엔드포인트",
+    "scopes": "범위"
   },
   "summary": {
     "generatedAt": "<0></0>에 생성됨",

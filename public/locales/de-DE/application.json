@@ -68,7 +68,7 @@
       "readonly": "Nur lesen",
       "readwrite": "Lesen & Schreiben",
       "profile": "Profil",
-      "profileDesc": "Ihre grundlegenden Profilinformationen wie Nickname, E-Mail, Avatar usw.",
+      "profileDesc": "Ihre Kontoprofilinformationen wie Nickname, E-Mail, Avatar, Einstellungen usw.",
       "offlineAccess": "Offline-Zugriff",
       "offlineAccessDesc": "Zugriff beibehalten, wenn Sie die Anwendung nicht aktiv nutzen.",
       "userSecurityInfo": "Sicherheitsinformationen",

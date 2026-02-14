@@ -68,7 +68,7 @@
       "readonly": "只读",
       "readwrite": "读写",
       "profile": "个人资料",
-      "profileDesc": "你的基本个人资料信息，如昵称、邮箱、头像等。",
+      "profileDesc": "你的账户个人资料信息，如昵称、邮箱、头像、设置等。",
       "offlineAccess": "离线访问",
       "offlineAccessDesc": "在你未主动使用应用时保持访问权限。",
       "userSecurityInfo": "安全信息",

@@ -68,7 +68,7 @@
       "readonly": "読み取り専用",
       "readwrite": "読み取りと書き込み",
       "profile": "プロフィール",
-      "profileDesc": "ニックネーム、メール、アバターなどの基本的なプロフィール情報。",
+      "profileDesc": "ニックネーム、メール、アバター、設定などのアカウントプロフィール情報。",
       "offlineAccess": "オフラインアクセス",
       "offlineAccessDesc": "アプリケーションを積極的に使用していないときもアクセスを維持します。",
       "userSecurityInfo": "セキュリティ情報",

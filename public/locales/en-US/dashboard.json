@@ -86,7 +86,8 @@
     "authorizeEndpoint": "Authorize Endpoint",
     "tokenEndpoint": "Token Endpoint",
     "refreshEndpoint": "Refresh Endpoint",
-    "userinfoEndpoint": "User Info Endpoint"
+    "userinfoEndpoint": "User Info Endpoint",
+    "scopes": "Scopes"
   },
   "summary": {
     "generatedAt": "Generated at <0></0>",

@@ -86,7 +86,8 @@
     "authorizeEndpoint": "Point de terminaison d'autorisation",
     "tokenEndpoint": "Point de terminaison de jeton",
     "refreshEndpoint": "Point de terminaison de rafraîchissement",
-    "userinfoEndpoint": "Point de terminaison d'informations utilisateur"
+    "userinfoEndpoint": "Point de terminaison d'informations utilisateur",
+    "scopes": "Portées"
   },
   "summary": {
     "generatedAt": "Généré le <0></0>",

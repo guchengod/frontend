@@ -86,7 +86,8 @@
     "authorizeEndpoint": "Endpoint de autorización",
     "tokenEndpoint": "Endpoint de token",
     "refreshEndpoint": "Endpoint de actualización",
-    "userinfoEndpoint": "Endpoint de información de usuario"
+    "userinfoEndpoint": "Endpoint de información de usuario",
+    "scopes": "Ámbitos"
   },
   "summary": {
     "generatedAt": "Generado en <0></0>",

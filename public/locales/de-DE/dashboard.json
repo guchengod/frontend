@@ -86,7 +86,8 @@
     "authorizeEndpoint": "Autorisierungs-Endpunkt",
     "tokenEndpoint": "Token-Endpunkt",
     "refreshEndpoint": "Refresh-Endpunkt",
-    "userinfoEndpoint": "Benutzerinfo-Endpunkt"
+    "userinfoEndpoint": "Benutzerinfo-Endpunkt",
+    "scopes": "Berechtigungsbereiche"
   },
   "summary": {
     "generatedAt": "Erstellt am <0></0>",

@@ -68,7 +68,7 @@
       "readonly": "Solo lectura",
       "readwrite": "Lectura y escritura",
       "profile": "Perfil",
-      "profileDesc": "Tu información básica de perfil, como apodo, correo electrónico, avatar, etc.",
+      "profileDesc": "Tu información de perfil de cuenta, como apodo, correo electrónico, avatar, configuración, etc.",
       "offlineAccess": "Acceso sin conexión",
       "offlineAccessDesc": "Mantener el acceso cuando no estés usando activamente la aplicación.",
       "userSecurityInfo": "Información de seguridad",

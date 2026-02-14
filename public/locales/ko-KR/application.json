@@ -68,7 +68,7 @@
       "readonly": "읽기 전용",
       "readwrite": "읽기 및 쓰기",
       "profile": "프로필",
-      "profileDesc": "닉네임, 이메일, 아바타 등 기본 프로필 정보.",
+      "profileDesc": "닉네임, 이메일, 아바타, 설정 등 계정 프로필 정보.",
       "offlineAccess": "오프라인 액세스",
       "offlineAccessDesc": "애플리케이션을 적극적으로 사용하지 않을 때도 액세스를 유지합니다.",
       "userSecurityInfo": "보안 정보",

@@ -86,7 +86,8 @@
     "authorizeEndpoint": "認可エンドポイント",
     "tokenEndpoint": "トークンエンドポイント",
     "refreshEndpoint": "リフレッシュエンドポイント",
-    "userinfoEndpoint": "ユーザー情報エンドポイント"
+    "userinfoEndpoint": "ユーザー情報エンドポイント",
+    "scopes": "スコープ"
   },
   "summary": {
     "generatedAt": "生成日 <0></0>",

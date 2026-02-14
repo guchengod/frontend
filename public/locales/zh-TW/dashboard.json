@@ -86,7 +86,8 @@
     "authorizeEndpoint": "授權端點",
     "tokenEndpoint": "權杖端點",
     "refreshEndpoint": "重新整理端點",
-    "userinfoEndpoint": "使用者資訊端點"
+    "userinfoEndpoint": "使用者資訊端點",
+    "scopes": "權限範圍"
   },
   "summary": {
     "generatedAt": "生成於 <0></0>",

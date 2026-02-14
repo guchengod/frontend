@@ -68,7 +68,7 @@
       "readonly": "唯讀",
       "readwrite": "讀寫",
       "profile": "個人資料",
-      "profileDesc": "你的基本個人資料資訊，如暱稱、郵箱、頭像等。",
+      "profileDesc": "你的帳戶個人資料資訊，如暱稱、郵箱、頭像、設定等。",
       "offlineAccess": "離線存取",
       "offlineAccessDesc": "在你未主動使用應用時保持存取權限。",
       "userSecurityInfo": "安全資訊",

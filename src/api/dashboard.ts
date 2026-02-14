@@ -144,6 +144,7 @@ export interface StoragePolicy extends CommonMixin {
   };
   entities_count?: number;
   entities_size?: number;
+  hash_id?: string;
 }
 
 export enum NodeType {
