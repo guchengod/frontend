@@ -177,6 +177,8 @@ const ListThumbnail = memo(({ file, isSelected, noThumb, showLock }: ListThumbna
         <FileTypeBadge>
           <FileIcon
             file={file}
+            variant={"small"}
+            sx={{ p: 0, display: "flex", alignItems: "center", justifyContent: "center" }}
             iconProps={{
               sx: {
                 fontSize: 14,
