@@ -157,7 +157,7 @@ const ListThumbnail = memo(({ file, isSelected, noThumb, showLock }: ListThumbna
             <ThumbSquareFallback>
               <FileIcon
                 file={file}
-                variant={"largeMobile"}
+                variant={"medium"}
                 iconProps={{
                   sx: {
                     fontSize: 28,
